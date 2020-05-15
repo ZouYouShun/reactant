@@ -1,33 +1,34 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-loop-func */
+import { produce, setAutoFreeze } from 'immer';
 import { FunctionComponent } from 'react';
-import { setAutoFreeze, produce } from 'immer';
+import { Container, ModuleOptions, ServiceIdentifiersMap } from 'reactant-di';
 import {
-  combineReducers,
-  ReducersMapObject,
-  createStore as createStoreWithRedux,
-  Store,
-  PreloadedState,
   applyMiddleware,
+  combineReducers,
+  createStore as createStoreWithRedux,
+  PreloadedState,
+  ReducersMapObject,
+  Store,
 } from 'redux';
-import { Container, ServiceIdentifiersMap, ModuleOptions } from 'reactant-di';
+
 import {
-  ReactantAction,
-  PluginHooks,
+  actionIdentifier,
+  stateKey,
+  storeKey,
+  subscriptionsKey,
+} from '../constants';
+import { getStagedState } from '../decorators';
+import {
   DevOptions,
+  PluginHooks,
+  ReactantAction,
   Subscriptions,
   ThisService,
 } from '../interfaces';
-import {
-  storeKey,
-  subscriptionsKey,
-  stateKey,
-  actionIdentifier,
-} from '../constants';
-import { getStageName, perform, getComposeEnhancers } from '../utils';
+import { getComposeEnhancers, getStageName, perform } from '../utils';
 import { handlePlugin } from './handlePlugin';
-import { getStagedState } from '../decorators';
 
 export function createStore<T = any>(
   modules: ModuleOptions[],

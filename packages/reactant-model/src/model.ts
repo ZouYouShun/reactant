@@ -1,5 +1,5 @@
 import { produce } from 'immer';
-import { storeKey, Service, stateKey, actionIdentifier } from 'reactant-module';
+import { actionIdentifier, Service, stateKey, storeKey } from 'reactant-module';
 
 type SerivceName = Pick<Service, 'name'>;
 

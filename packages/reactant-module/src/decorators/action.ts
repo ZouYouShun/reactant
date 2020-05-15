@@ -1,7 +1,8 @@
 /* eslint-disable func-names */
 import { produce } from 'immer';
+
+import { actionIdentifier, stateKey, storeKey } from '../constants';
 import { Service } from '../interfaces';
-import { storeKey, stateKey, actionIdentifier } from '../constants';
 
 let stagedState: Record<string, unknown> | undefined;
 
