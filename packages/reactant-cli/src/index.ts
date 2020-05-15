@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
 import { Command } from 'commander';
-import path from 'path';
 import fs from 'fs-extra';
-import { createInitCommand } from './init';
-import { createInfoCommand } from './info';
+import path from 'path';
+
 import { createGenerateCommand } from './generate';
+import { createInfoCommand } from './info';
+import { createInitCommand } from './init';
 
 export interface PackageJson {
   name?: string;
