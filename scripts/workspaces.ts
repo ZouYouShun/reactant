@@ -1,5 +1,5 @@
-import globParent from 'glob-parent';
 import fs from 'fs-extra';
+import globParent from 'glob-parent';
 import path from 'path';
 
 export const buildTypes = {
