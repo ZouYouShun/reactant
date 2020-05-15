@@ -1,25 +1,26 @@
 import {
   Container,
-  MetadataReader,
-  interfaces,
   ContainerModule,
   decorate,
+  interfaces,
+  MetadataReader,
 } from 'inversify';
-import {
-  ContainerConfig,
-  ModuleOptions,
-  FactoryProvider,
-  ValueProvider,
-  ClassProvider,
-  ServiceIdentifier,
-  DependencyProviderOption,
-} from './interfaces';
-import { getMetadata, setModulesDeps, lookupOptionalIdentifier } from './util';
-import { createCollector } from './middlewares/collector';
+
 import { METADATA_KEY } from './constants';
-import { injectable, inject } from './decorators';
-import { defaultUndefinedValue } from './optional';
+import { inject, injectable } from './decorators';
+import {
+  ClassProvider,
+  ContainerConfig,
+  DependencyProviderOption,
+  FactoryProvider,
+  ModuleOptions,
+  ServiceIdentifier,
+  ValueProvider,
+} from './interfaces';
+import { createCollector } from './middlewares/collector';
 import { ModuleRef } from './moduleRef';
+import { defaultUndefinedValue } from './optional';
+import { getMetadata, lookupOptionalIdentifier, setModulesDeps } from './util';
 
 class CustomMetadataReader extends MetadataReader {
   public getConstructorMetadata(

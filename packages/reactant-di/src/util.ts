@@ -1,11 +1,11 @@
 import {
+  ClassProvider,
+  MetaDataKey,
   MetadataMap,
   Module,
-  ServiceIdentifier,
-  MetaDataKey,
   ModuleOptions,
   ModuleProvider,
-  ClassProvider,
+  ServiceIdentifier,
 } from './interfaces';
 import { Optional } from './optional';
 
